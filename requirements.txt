@@ -1,0 +1,6 @@
+﻿Flask>=2.0
+Flask-SQLAlchemy>=2.5
+Flask-Migrate>=3.0
+Flask-SocketIO>=5.0
+eventlet>=0.33.0
+pytest>=7.0

@@ -1,0 +1,64 @@
+<!-- --- app/templates/dashboard.html ---
+Main CTF dashboard page
+-->
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CTF Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.1/socket.io.min.js"></script>
+</head>
+<body>
+
+    <form method="POST" action="{{ url_for('ctf.reset_ctf') }}">
+        <button type="submit" class="btn">Start New Round</button>
+    </form>
+    
+    {# Flash success or error messages #}
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, msg in messages %}
+          <div class="flash-{{ category }}">{{ msg }}</div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    <h1>Live Security Alerts</h1>
+
+    {# Show Start CTF button if no active alerts #}
+    {% if alerts|length == 0 %}
+    <form method="POST" action="{{ url_for('ctf.start_ctf') }}">
+        <button type="submit" class="btn btn-primary">Start CTF</button>
+    </form>
+    {% endif %}
+  
+    <table>
+        <thead>
+            <tr>
+                <th>Alert</th>
+                <th>Action</th>
+                <th>Result</th>
+            </tr>
+        </thead>
+        <tbody id="alerts-body">
+            {% for alert in alerts %}
+            <tr data-uuid="{{ alert.uuid }}">
+                <td>{{ alert.description }}</td>
+                <td>
+                    <form class="submit-form">
+                        <input type="hidden" name="uuid" value="{{ alert.uuid }}">
+                        <input type="text" name="flag" placeholder="Enter flag" required>
+                        <button type="submit">Submit</button>
+                    </form>
+                </td>
+                <td class="result-cell"></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

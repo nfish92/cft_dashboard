@@ -1,0 +1,27 @@
+# --- .gitignore ---
+
+# Ignore Python compiled files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Ignore virtual environments
+venv/
+
+# Ignore IDE/editor settings
+.vscode/
+.idea/
+
+# Ignore OS system files
+.DS_Store
+Thumbs.db
+
+# Ignore SQLite database files
+*.db
+
+# Ignore challenge folders generated during CTFs
+generated_challenges/
+CyberHunt/
+
+# Ignore log files (optional, if you add any)
+*.log

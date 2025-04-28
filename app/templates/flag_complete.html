@@ -1,0 +1,21 @@
+<!-- --- app/templates/flag_complete.html ---
+Success page after a correct flag submission
+-->
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flag Submitted</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>✅ Flag Correct!</h1>
+        <p>You solved alert: <strong>{{ submission.alert.uuid }}</strong></p>
+        <p>Your score: <strong>{{ submission.score }}</strong></p>
+        <p>Submitted at: <em>{{ submission.timestamp.strftime('%Y-%m-%d %H:%M:%S') }}</em></p>
+        <a href="{{ url_for('ctf.dashboard') }}" class="btn">Return to Dashboard</a>
+    </div>
+</body>
+</html>
