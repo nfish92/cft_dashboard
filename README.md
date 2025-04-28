@@ -34,7 +34,6 @@ cd ctf_dashboard
 2. Create and activate a virtual environment:
 
 3. Install required packages:
-```bash
 python -m venv venv
 .\venv\Scripts\activate
 
