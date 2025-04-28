@@ -26,3 +26,31 @@ Perfect for cybersecurity practice, SOC training, or showcasing technical skills
 ```bash
 git clone https://github.com/yourusername/ctf_dashboard.git
 cd ctf_dashboard
+
+---
+
+## Running the Project
+
+2. Create and activate a virtual environment:
+
+3. Install required packages:
+```bash
+python -m venv venv
+.\venv\Scripts\activate
+
+pip install -r requirements.txt
+
+4. Run the Flask server:
+python manage.py
+
+5. Open your browser and navigate to:
+http://127.0.0.1:5000/
+
+6. Use the dashboard:
+
+Click Start New Round to generate 5 random alerts and corresponding filesystem challenges.
+
+Solve challenges by finding flags hidden inside generated folders.
+
+Submit flags to earn points and track your progress!
+
