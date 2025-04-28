@@ -25,3 +25,5 @@ CyberHunt/
 
 # Ignore log files (optional, if you add any)
 *.log
+
+push_to_github.ps1
